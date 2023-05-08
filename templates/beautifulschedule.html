@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arbuda</title>
+	<style>
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
 
+		h1 {
+			color: #333333;
+			margin: 20px;
+			text-align: center;
+		}
+
+		form {
+			background-color: #ffffff;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+			margin: auto;
+			max-width: 600px;
+			padding: 20px;
+		}
+
+		label {
+			display: block;
+			font-size: 16px;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+
+		input[type="date"],
+		input[type="time"],
+		textarea {
+			border-radius: 5px;
+			border: 1px solid #cccccc;
+			font-size: 16px;
+			padding: 6px;
+			width: 100%;
+		}
+
+		input[type="submit"] {
+			background-color: #4CAF50;
+			border: none;
+			border-radius: 5px;
+			color: #ffffff;
+			cursor: pointer;
+			font-size: 16px;
+			margin-top: 20px;
+			padding: 10px;
+			width: 100%;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>Schedule a meeting with Dr. Amanda</h1>
+	<form id="meeting-form" method="POST" action="/beautifulschedule">
+		<label for="date">Date:</label>
+		<input type="date" name="date" required><br><br>
+		<label for="start_time">Start Time:</label>
+		<input type="time" name="start_time" required><br><br>
+		<label for="end_time">End Time:</label>
+		<input type="time" name="end_time" required><br><br>
+		<label for="attendees">Enter your Email ID:</label>
+		<textarea name="attendees" required></textarea><br><br>
+		<label for="description">Description:</label>
+		<textarea name="description" required></textarea><br><br>
+		<input type="submit" value="Schedule Meeting" onclick="showAlert()">
+	</form>
+
+<script>
+function showAlert() {
+  // Get the values of the date and time inputs
+  var date = document.getElementsByName("date")[0].value;
+  var startTime = document.getElementsByName("start_time")[0].value;
+  var endTime = document.getElementsByName("end_time")[0].value;
+
+  // Concatenate the values into the alert message
+  var message = "Meeting scheduled with Dr. Amanda on " + date + " from " + startTime + " to " + endTime;
+
+  // Display the alert message
+  alert(message);
+}
+</script>
+
+</body>
+</html>
